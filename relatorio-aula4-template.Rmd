@@ -40,7 +40,7 @@ Gráfico da chuva mensal para a cidade de `r city`.
 #dados_met
 # dados_met$NewYork 
 # dados_met[["NewYork"]]
-desvio <- dados_met[[icity]] - mean(dados_met[[icity]])
+desvio <- dados_met[[city]] - mean(dados_met[[city]])
 
 plot(desvio,
   type = "o",          # tipo de linha (linha com ponto)
