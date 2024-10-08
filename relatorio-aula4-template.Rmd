@@ -1,0 +1,66 @@
+---
+title: "Desvio da Chuva mensal para `r params$cidade` usando R Markdown"
+author: "Jéssica Stobienia Gonçalves"
+date: '`r Sys.Date()`'
+output: pdf_document
+params:
+  cidade: Tokyo
+---
+
+
+```{r setup, include=FALSE}
+# definicao global para que os codigos dos chuncks sejam impressos no html gerado
+knitr::opts_chunk$set(echo = TRUE)
+library(knitr)
+```
+
+## Importando dados
+
+Nesta parte mostramos como carregar os dados gerados por um outro script.
+
+```{r cars}
+source("gera-dados.R")
+## dados gerados no script acima
+# dados_met
+kable(head(dados_met, n = 5))
+```
+
+## Gráfico dos dados
+
+Obtendo a variável cidade a partir do cabeçalho do arquivo `Rmd`.
+
+```{r}
+city <- params$cidade
+city
+```
+
+Gráfico da chuva mensal para a cidade de `r city`.
+
+```{r}
+#dados_met
+# dados_met$NewYork 
+# dados_met[["NewYork"]]
+desvio <- dados_met[[icity]] - mean(dados_met[[icity]])
+
+plot(desvio,
+  type = "o",          # tipo de linha (linha com ponto)
+  pch = 19,            # simbolo circulo preenchido
+  ylab = " Desvio de Chuva (mm)", # label eixo y  
+  xlab = "Mês",        # label eixo x
+  #ylim = range(dados_met[, -1]), # intervalo de variacao do eixo y
+  #ylim = c(-100, 100),
+  ylim = range(desvio),
+  main = city          # titulo
+)
+# 
+abline(h = 0, lty = 3)
+```
+
+Resumo estatístico para `r city`.
+
+```{r}
+#boxplot(dados_met[[city]])
+boxplot(desvio)
+```
+
+

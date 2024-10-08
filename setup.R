@@ -1,3 +1,4 @@
+getwd()
 
 # instrucoes de configuracao do github
 # https://usethis.r-lib.org/articles/usethis-setup.html
@@ -21,7 +22,7 @@ usethis::git_vaccinate()
 
 
 library(usethis) 
-use_git_config(user.name = "lhmet", user.email = "lhmet@ufsm.br")
+use_git_config(user.name = "Jestogon", user.email = "jessicastogon@gmail.com")
 
 
 # check by running a git situation-report: 
