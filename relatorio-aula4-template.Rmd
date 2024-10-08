@@ -2,7 +2,7 @@
 title: "Desvio da Chuva mensal para `r params$cidade` usando R Markdown"
 author: "Jéssica Stobienia Gonçalves"
 date: '`r Sys.Date()`'
-output: pdf_document
+output: html_document
 params:
   cidade: Tokyo
 ---

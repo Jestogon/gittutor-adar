@@ -7,7 +7,7 @@ getwd()
 # instalar o pacote usethis
 # install.packages("usethis")
 
-
+library(usethis)
 # configurando usuario e e-mail do github
 usethis::edit_r_profile()
 
